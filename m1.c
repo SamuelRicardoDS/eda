@@ -14,7 +14,7 @@ int main()
     scanf("%i", &numlinhas);
     scanf("%i", &numGalhos);
 
-    char jogo[numlinhas][colunas];
+    char jogo[3000][colunas];
     for (int i = 0; i < numlinhas; i++)
     {
         for (int j = 0; j < colunas; j++)
@@ -60,7 +60,7 @@ int main()
     }
 
     printf("~~~~~~~~~~~\n");
-    for (int i = numlinhas - 1; i >= 0; i--)
+    for (int i = alturaLenhador + 4; i >= 0; i--)
     {
         for (int j = 0; j < colunas; j++)
         {
@@ -81,7 +81,7 @@ int main()
                     alturaLenhador++;
                     if (jogo[alturaLenhador + 1][3] == '-')
                     {
-                        printf("**morreu**");
+                        printf("**morreu**\n");
                         return 0;
                     }
                     else
@@ -129,8 +129,8 @@ int main()
                 }
                 else
                 {
-                    jogo[0][2] = ' ';
-                    jogo[1][2] = ' ';
+                    jogo[alturaLenhador][2] = ' ';
+                    jogo[alturaLenhador + 1][2] = ' ';
                     jogo[alturaLenhador][8] = 'L';
                     jogo[alturaLenhador + 1][8] = 'L';
                     ladoLenhador = 'D';
@@ -147,19 +147,26 @@ int main()
                 {
                     jogo[alturaLenhador][2] = 'L';
                     jogo[alturaLenhador + 1][2] = 'L';
-                    jogo[0][8] = ' ';
-                    jogo[1][8] = ' ';
+                    jogo[alturaLenhador][8] = ' ';
+                    jogo[alturaLenhador + 1][8] = ' ';
                     ladoLenhador = 'E';
                 }
             }
         }
 
         printf("~~~~~~~~~~~\n");
-        for (int i = numlinhas - 1; i >= 0; i--)
+        for (int i = alturaLenhador + 4; i >= alturaLenhador; i--)
         {
             for (int j = 0; j < colunas; j++)
             {
-                printf("%c", jogo[i][j]);
+                if (jogo[i][j])
+                {
+                    printf("%c", jogo[i][j]);
+                }
+                else
+                {
+                    printf(" ");
+                }
             }
             printf("\n");
         }
