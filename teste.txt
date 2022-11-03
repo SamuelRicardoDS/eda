@@ -1,7 +1,15 @@
-10
 3
-E 3
-D 6
-E 9
-D
-TTBBT
+a
+abc
+ab
+2 3
+j
+j
+j
+j
+k
+k
+k
+k
+k
+j
