@@ -1,19 +1,24 @@
 #include <stdio.h>
 
 
-void moveX(char *palavra, int i) {
-  if(palavra[i]== '\0') {
+void moveX(char *palavra) {
+  
+  if(*palavra == '\0') {
     return;
   }
- 
-  printf("%c", palavra[i]);
-  moveX(palavra, i+1);
+
+  if(*palavra == 'x' ) {
+    moveX(palavra+1); 
+    printf("x");
+  } else {
+    printf("%c", *palavra);
+    moveX(palavra+1);
+  } 
 }
 
 int main() {
   char palavra[100];
   scanf("%s", palavra);
-  int i = 0;
-  moveX(palavra, i);
+  moveX(palavra);
   printf("\n");
 }
