@@ -1,15 +1,14 @@
-#include <stdio.h>
 
-long int fibonacci(long int n[80]) {
-  for(int i = 2; i < 80; i++) {
-    n[i] = n[i - 1] + n[i - 2];
+
+unsigned long int fib[81];
+
+long int fibonacci(int n) {
+  if ((n <=2) && fib[n] == 0) {
+    fib[n] = 1;
+  } else if (fib[n] == 0) {
+    fib[n] = fibonacci(n -2) + fibonacci(n-1);
   }
-  return n[70];
+  return fib[n];
 }
 
-int main() {
-  long int n[80];
-  scanf("%li", n);
-  long int a = fibonacci(n);
-  printf("%li\n", a);
-}
+
